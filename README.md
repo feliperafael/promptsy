@@ -44,7 +44,7 @@ prompt.save(manager)
 loaded_prompt = Prompt.load(manager, "hello_world")
 
 print(loaded_prompt)  # Output: hello_world: An example prompt
-print(loaded_prompt.format(name="Felipe"))  # Output: Hello, Felipe!
+print(loaded_prompt.format(name="Taylor Swift"))  # Output: Hello, Taylor Swift!
 ```
 
 ## Prompt Manager
