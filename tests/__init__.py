@@ -1,2 +1,2 @@
-from promptz.prompt import Prompt
-from promptz.prompt_manager import PromptManager
+from promptsy.prompt import Prompt
+from promptsy.prompt_manager import PromptManager

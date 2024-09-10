@@ -1,5 +1,5 @@
 import pytest
-from promptz.prompt import Prompt
+from promptsy.prompt import Prompt
 from unittest import mock
 
 def test_prompt_initialization():

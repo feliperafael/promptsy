@@ -1,6 +1,6 @@
 import os
 import pytest
-from promptz.prompt_manager import PromptManager
+from promptsy.prompt_manager import PromptManager
 
 @pytest.fixture
 def prompt_manager():

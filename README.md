@@ -1,6 +1,6 @@
-# Promptz
+# Promptsy
 
-Promptz is a Python library designed for managing and organizing prompts for language models in a structured way. It provides a convenient method to store, retrieve, and format prompts using YAML files.
+Promptsy is a Python library designed for managing and organizing prompts for language models in a structured way. It provides a convenient method to store, retrieve, and format prompts using YAML files.
 
 ## Features
 
@@ -13,19 +13,19 @@ Promptz is a Python library designed for managing and organizing prompts for lan
 
 ## Installation
 
-To install Promptz, you can use pip:
+To install Promptsy, you can use pip:
 
 ```bash
-pip install promptz
+pip install promptsy
 ```
 
 ## Usage
 
-Here's a basic example of how to use Promptz:
+Here's a basic example of how to use Promptsy:
 
 ```python
-from promptz.prompt import Prompt
-from promptz.prompt_manager import PromptManager
+from promptsy.prompt import Prompt
+from promptsy.prompt_manager import PromptManager
 
 # Create an instance of PromptManager
 manager = PromptManager()
@@ -128,7 +128,7 @@ loaded_prompt = Prompt.load(manager, name)
 
 ## Contributing
 
-Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request on the [GitHub repository](https://github.com/feliperafael/promptz).
+Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request on the [GitHub repository](https://github.com/feliperafael/promptsy).
 
 ## License
 

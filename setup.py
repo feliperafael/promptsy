@@ -1,14 +1,14 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='promptz',
+    name='promptsy',
     version='0.1.3',
     description='A Python library for managing and organizing prompts for Large Language Models (LLMs)',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     author='Felipe Rafael de Souza',
     author_email='felipe@evakub.com.br',
-    url='https://github.com/feliperafael/promptz',
+    url='https://github.com/feliperafael/promptsy',
     packages=find_packages(),
     install_requires=[
         'PyYAML',
