@@ -1,0 +1,4 @@
+text:
+  description: An example prompt
+  name: hello_world
+  template: Hello, {name}!
