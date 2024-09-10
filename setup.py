@@ -13,6 +13,7 @@ setup(
     install_requires=[
         'PyYAML',
         'colorama',
+        'openai',
     ],
     classifiers=[
         'Development Status :: 3 - Alpha',

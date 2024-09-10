@@ -2,6 +2,8 @@ import os
 import yaml
 from colorama import init, Fore, Style
 
+from promptsy.prompt import Prompt
+
 init()  # Initialize colorama
 
 class PromptManager:
@@ -55,7 +57,8 @@ class PromptManager:
         
         with open(file_path, 'w') as file:
             yaml.dump({'text': prompt}, file)
-        print(f"Prompt saved to {file_path}")
+        # Print the success message in green
+        print(Fore.GREEN + f"Prompt saved to {file_path}" + Style.RESET_ALL)
 
     def load(self, name):
         """
@@ -79,7 +82,9 @@ class PromptManager:
         
         with open(file_path, 'r') as file:
             data = yaml.safe_load(file)
-        return data.get('text', '')
+       
+        # Cria e retorna um objeto Prompt com os dados carregados
+        return Prompt.from_dict(data['text'])  # Usando o método from_dict da classe Prompt
 
     def list_prompts(self):
         """

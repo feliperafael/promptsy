@@ -1,0 +1,29 @@
+text:
+  description: improves user prompt
+  name: enhancement_prompt
+  template: "
+    Original Prompt: {original_prompt}
+
+    Task: Based on the original prompt, identify the user's intentions and improve the original
+    prompt to make it clearer, more precise, and informative. Ensure that the user's intention is
+    preserved and that the revised prompt provides explicit guidance to the LLM for generating a
+    better response.
+
+    Important: Do not modify or alter any values enclosed in curly braces from the original prompt.
+    These must remain unchanged.
+
+    Steps to follow:
+
+        1. Identify the Intention: Analyze the original prompt to determine the central intention
+          or goal. Summarize the intention concisely.
+        2. Clarity Improvement: Rewrite the prompt with a clearer and more structured approach.
+          Eliminate ambiguity and make the instruction direct.
+        3. Expand Details: If necessary, add contextual details or constraints that could enhance
+          the LLM's response quality.
+        4. Consistency Check: Ensure that the original intention is preserved in the new prompt.
+
+    Identified Intention: {summary_of_intention}
+
+    Improved Prompt:
+  "
+

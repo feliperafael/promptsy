@@ -68,6 +68,9 @@ class Prompt:
         Returns:
             Prompt: A new Prompt instance created from the dictionary.
         """
+        # Ensure data is a dictionary
+        if not isinstance(data, dict):
+            raise ValueError("Expected a dictionary for data")
         return cls(data['name'], data['description'], data['template'])
 
     def save(self, manager):
@@ -91,5 +94,10 @@ class Prompt:
         Returns:
             Prompt: The loaded Prompt instance.
         """
-        data = manager.load(name)
+        data = manager.load(name)  # Check what this returns
+        print("Data received:", data)
         return cls.from_dict(data)
+    
+    def get_description(self):
+
+        print(self.description)
