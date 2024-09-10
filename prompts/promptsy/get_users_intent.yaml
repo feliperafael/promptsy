@@ -1,14 +1,17 @@
 text:
   description: Captures user intent
   name: get_users_intent
-  template: "\n        Input Prompt: \"{input_prompt}\"\n    \n        Task: Analyze\
-    \ the input prompt and identify the main intention or goal of the user. Provide\
-    \ a clear and concise description of what the user is trying to achieve, considering\
-    \ the context, implied expectations, and the nature of the request.\n        \n\
-    \        Steps to follow:\n        \n        Analyze the Content: Review the input\
-    \ prompt for key phrases, tone, and structure to understand the user's request.\n\
-    \        Identify the Main Intention: Determine the central purpose or desired\
-    \ outcome of the prompt. This could be a request for information, an action, an\
-    \ explanation, or any other objective.\n        Summarize the Intention: Provide\
-    \ a brief, clear summary of the user's intention in one or two sentences.\n  \
-    \      \n        Output (User's Intention):\n    "
+  template: |
+    Input Prompt: "{input_prompt}"
+    
+    Task: Analyze the input prompt and identify the main intention or goal of the user. Provide
+    a clear and concise description of what the user is trying to achieve, considering
+    the context, implied expectations, and the nature of the request.
+
+    Steps to follow:
+
+    1. Analyze the Content: Review the input prompt for key phrases, tone, and structure to understand the user's request.
+    2. Identify the Main Intention: Determine the central purpose or desired outcome of the prompt. This could be a request for information, an action, an explanation, or any other objective.
+    3. Summarize the Intention: Provide a brief, clear summary of the user's intention in one or two sentences.
+
+    Output (User's Intention):
