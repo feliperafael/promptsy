@@ -1,4 +1,3 @@
-
 # Promptsy
 
 Promptsy is a Python library designed for managing and organizing prompts for language models in a structured way. It provides a convenient method to store, retrieve, and format prompts using YAML files.
@@ -12,6 +11,7 @@ Promptsy is a Python library designed for managing and organizing prompts for la
 - List all available prompts in the specified base directory
 - Colorized error messages for better visibility
 - Enhance prompts using OpenAI's language model
+- Generate few-shot examples for prompts using the `FewShotPromptGenerator`, allowing for improved context and response generation based on specified expected outputs.
 
 ## Installation
 
@@ -162,6 +162,53 @@ print(enhanced_prompt.template)
 ### Saving Enhanced Prompts
 
 The enhanced prompts are automatically saved in the `enhanced_prompts` directory.
+
+
+
+```markdown
+## Example Usage of FewShotPromptGenerator
+
+Here’s an example of how to use the `FewShotPromptGenerator` to generate few-shot examples for a sentiment analysis prompt:
+
+```python
+from promptsy.auto_few_shot_generator import FewShotPromptGenerator
+from promptsy.prompt import Prompt
+from promptsy.prompt_manager import PromptManager
+
+# Create an instance of PromptManager
+manager = PromptManager()
+
+# Create an instance of Prompt for sentiment analysis
+sentiment_analysis_prompt = Prompt(
+    name="sentiment_analysis",
+    description="Generate a sentiment analysis prompt",
+    template="You are a sentiment analysis prompt generator. Generate a prompt for sentiment analysis for the following text: {text}"
+)
+
+# Save the original prompt
+sentiment_analysis_prompt.save(manager)
+
+# Create an instance of FewShotPromptGenerator
+few_shot_generator = FewShotPromptGenerator(model_name="gpt-4o-mini")
+
+# Generate few-shot examples using the sentiment analysis prompt
+num_examples = 3
+expected_outputs = ["negative", "positive", "neutral"]
+sentiment_analysis_prompt_with_examples = few_shot_generator.generate_examples(
+    prompt_initial=sentiment_analysis_prompt,
+    num_examples=num_examples,
+    expected_outputs=expected_outputs,
+    return_examples=False
+)
+
+print("Formatted Prompt with Few-Shot Examples:")
+print(sentiment_analysis_prompt_with_examples.template)
+
+# Optionally, you can call the OpenAI API with the generated prompt
+final_prompt = sentiment_analysis_prompt_with_examples.format(text="I am so happy today, but I am tired!")
+print(final_prompt)
+```
+
 
 ## Contributing
 
