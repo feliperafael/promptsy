@@ -10,9 +10,9 @@ setup(
     author_email='felipe@evakub.com.br',
     url='https://github.com/feliperafael/promptsy',
     packages=find_packages(),
-    include_package_data=True,  # Inclui arquivos de dados
+    include_package_data=True,  
     package_data={
-        'promptsy': ['prompts/*.yaml'],  # Inclui todos os arquivos YAML na pasta prompts
+        'promptsy': ['prompts/**/*.yaml'],  
     },
     install_requires=[
         'PyYAML',
