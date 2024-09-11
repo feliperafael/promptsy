@@ -1,5 +1,6 @@
 import os
 import yaml
+import pkg_resources
 from colorama import init, Fore, Style
 
 from promptsy.prompt import Prompt
@@ -85,6 +86,30 @@ class PromptManager:
        
         # Cria e retorna um objeto Prompt com os dados carregados
         return Prompt.from_dict(data['text'])  # Usando o método from_dict da classe Prompt
+
+    def load_from_package(self, name):
+        """
+        Load a prompt from a YAML file within the package.
+
+        Args:
+            name (str): The name of the prompt.
+
+        Returns:
+            Prompt: The loaded Prompt object.
+
+        Raises:
+            FileNotFoundError: If the prompt file does not exist in the package.
+        """
+        try:
+            # Usando pkg_resources para acessar o arquivo dentro do pacote
+            file_path = pkg_resources.resource_filename(package_or_requirement="promptsy", resource_name=os.path.join('prompts', f"{name}.yaml"))
+            with open(file_path, 'r') as file:
+                data = yaml.safe_load(file)
+            return Prompt.from_dict(data['text'])
+        except FileNotFoundError:
+            error_message = f"Prompt file {name}.yaml does not exist in the package."
+            print(error_message)
+            raise
 
     def list_prompts(self):
         """

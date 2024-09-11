@@ -33,12 +33,12 @@ class PromptEnhancer:
         prompt_template = prompt.template
        
         # Combine the enhancement prompt with the original prompt
-        intent_prompt = self.prompt_manager.load("promptsy.get_users_intent")
+        intent_prompt = self.prompt_manager.load_from_package("get_users_intent")
         
         summary_intent = self._call_llm(intent_prompt.format(input_prompt=prompt_template))
         
         # Get the enhancement prompt from Promptsy
-        enhancement_prompt = self.prompt_manager.load("promptsy.enhancement_prompt")
+        enhancement_prompt = self.prompt_manager.load_from_package("enhancement_prompt")
 
         # Call the LLM to generate the enhanced prompt
         enhanced_prompt_template = self._call_llm(enhancement_prompt.format(original_prompt=prompt_template, summary_of_intention=summary_intent))
