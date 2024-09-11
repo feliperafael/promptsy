@@ -1,3 +1,4 @@
 colorama
 pyyaml
-openai
+openai>=1.44.1
+pydantic>=2.8.2

@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='promptsy',
-    version='0.1.3.4',
+    version='0.1.3.5',
     description='A Python library for managing and organizing prompts for Large Language Models (LLMs)',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
@@ -15,9 +15,9 @@ setup(
         'promptsy': ['prompts/**/*.yaml'],  
     },
     install_requires=[
-        'PyYAML',
+        'pydantic>=2.8.2',  # Atualizado para versão mínima
         'colorama',
-        'openai',
+        'openai>=1.44.1',  # Adicionada versão mínima para openai
     ],
     classifiers=[
         'Development Status :: 3 - Alpha',
