@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='promptsy',
-    version='0.1.3.2',
+    version='0.1.3.4',
     description='A Python library for managing and organizing prompts for Large Language Models (LLMs)',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
