@@ -205,7 +205,7 @@ print(sentiment_analysis_prompt_with_examples.template)
 # Optionally, you can call the OpenAI API with the generated prompt
 final_prompt = sentiment_analysis_prompt_with_examples.format(text="I am so happy today, but I am tired!")
 print(final_prompt)
-
+```
 
 
 ## Contributing
