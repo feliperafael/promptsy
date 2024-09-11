@@ -1,7 +1,5 @@
-from promptsy.auto_few_shot_generator import FewShotPromptGenerator
-from promptsy.prompt import Prompt
-from promptsy.prompt_manager import PromptManager
-from promptsy.prompt_enhancer import PromptEnhancer
+from promptsy import Prompt, PromptManager, PromptEnhancer, FewShotPromptGenerator
+
 from openai import OpenAI
 
 from colorama import init, Fore
@@ -21,14 +19,14 @@ prompt = Prompt(
 )
 
 # Save the prompt using the PromptManager
-prompt.save(manager)
+prompt.save()
 
 # Load the prompt using the PromptManager
 loaded_prompt = manager.load("hello_world")
 
 print(loaded_prompt)  # Output: hello_world: An example prompt
 print(loaded_prompt.format(name="Taylor Swift"))  # Output: Hello, Taylor Swift!
-
+'''
 
 prompt_toddlers_story_time = Prompt(
     name="toddlers_story_time",
@@ -54,7 +52,7 @@ print(prompt_toddlers_story_time.template)
 print("\nEnhanced Prompt:")
 print(prompt_toddlers_story_time_enhanced.template)
 
-
+'''
 
 def call_openai_api(prompt, max_tokens=800):
     import os
@@ -74,7 +72,7 @@ def call_openai_api(prompt, max_tokens=800):
 
     return response.choices[0].message.content.strip()
 
-# Call the API using the prompts
+'''# Call the API using the prompts
 response_toddlers_story_time = call_openai_api(prompt_toddlers_story_time.template)
 response_toddlers_story_time_enhanced = call_openai_api(prompt_toddlers_story_time_enhanced.template)
 
@@ -82,11 +80,11 @@ print(Fore.YELLOW + "\nResponse for toddlers_story_time:")
 print(response_toddlers_story_time)
 
 print(Fore.GREEN + "\nResponse for toddlers_story_time_enhanced:")
-print(response_toddlers_story_time_enhanced)
+print(response_toddlers_story_time_enhanced)'''
 
 
 # Example usage of FewShotPromptGenerator
-few_shot_generator = FewShotPromptGenerator(model_name="gpt-4o-mini")
+'''few_shot_generator = FewShotPromptGenerator(model_name="gpt-4o-mini")
 
 
 sentiment_analysis_prompt = Prompt(
@@ -114,5 +112,5 @@ print(final_prompt)
 # Optionally, you can call the OpenAI API with the generated prompt
 response_with_examples = call_openai_api(final_prompt)
 print(Fore.CYAN + "\nResponse with Few-Shot Examples:")
-print(response_with_examples)
+print(response_with_examples)'''
 

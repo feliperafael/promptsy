@@ -3,7 +3,6 @@ import yaml
 import pkg_resources
 from colorama import init, Fore, Style
 
-from promptsy.prompt import Prompt
 
 init()  # Initialize colorama
 
@@ -25,6 +24,7 @@ class PromptManager:
         self.base_directory = base_directory
         os.makedirs(base_directory, exist_ok=True)
 
+    
     def _get_file_path(self, name):
         """
         Get the file path for a prompt with the given name.
@@ -61,6 +61,7 @@ class PromptManager:
         # Print the success message in green
         print(Fore.GREEN + f"Prompt saved to {file_path}" + Style.RESET_ALL)
 
+    
     def load(self, name):
         """
         Load a prompt from a YAML file.
@@ -74,6 +75,7 @@ class PromptManager:
         Raises:
             FileNotFoundError: If the prompt file does not exist.
         """
+        from promptsy.prompt import Prompt
         file_path = self._get_file_path(name)
         
         if not os.path.exists(file_path):
@@ -83,7 +85,7 @@ class PromptManager:
         
         with open(file_path, 'r') as file:
             data = yaml.safe_load(file)
-       
+        
         # Cria e retorna um objeto Prompt com os dados carregados
         return Prompt.from_dict(data['text'])  # Usando o método from_dict da classe Prompt
 
@@ -100,6 +102,7 @@ class PromptManager:
         Raises:
             FileNotFoundError: If the prompt file does not exist in the package.
         """
+        from promptsy.prompt import Prompt
         try:
             # Usando pkg_resources para acessar o arquivo dentro do pacote
             file_path = pkg_resources.resource_filename(package_or_requirement="promptsy", resource_name=os.path.join('prompts', f"{name}.yaml"))

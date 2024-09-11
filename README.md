@@ -1,3 +1,4 @@
+
 # Promptsy
 
 Promptsy is a Python library designed for managing and organizing prompts for language models in a structured way. It provides a convenient method to store, retrieve, and format prompts using YAML files.
@@ -45,10 +46,6 @@ Here's a basic example of how to use Promptsy:
 
 ```python
 from promptsy.prompt import Prompt
-from promptsy.prompt_manager import PromptManager
-
-# Create an instance of PromptManager
-manager = PromptManager()
 
 # Create an instance of Prompt
 prompt = Prompt(
@@ -57,11 +54,11 @@ prompt = Prompt(
     template="Hello, {name}!"
 )
 
-# Save the prompt using the PromptManager
-prompt.save(manager)
+# Save the prompt using the Prompt's save method
+prompt.save()  # Não é necessário passar o PromptManager
 
-# Load the prompt using the PromptManager
-loaded_prompt = Prompt.load(manager, "hello_world")
+# Load the prompt using the Prompt's load method
+loaded_prompt = Prompt.load("hello_world")  # Não é necessário passar o PromptManager
 
 print(loaded_prompt)  # Output: hello_world: An example prompt
 print(loaded_prompt.format(name="Taylor Swift"))  # Output: Hello, Taylor Swift!
@@ -82,16 +79,13 @@ manager = PromptManager(base_directory='prompts')
 ### Saving a Prompt
 
 ```python
-manager.save(prompt, name)
+prompt.save(name)  # O método save agora é chamado diretamente no objeto Prompt
 ```
-
-- `prompt` (dict): The prompt data to be saved.
-- `name` (str): The name of the prompt.
 
 ### Loading a Prompt
 
 ```python
-loaded_prompt = manager.load(name)
+loaded_prompt = Prompt.load(name)  # O método load agora é chamado diretamente na classe Prompt
 ```
 
 - `name` (str): The name of the prompt to load.
@@ -147,7 +141,7 @@ prompt_toddlers_story_time = Prompt(
 )
 
 # Save the original prompt
-prompt_toddlers_story_time.save(manager)
+prompt_toddlers_story_time.save()
 
 # Create an instance of PromptEnhancer
 enhancer = PromptEnhancer()
@@ -163,7 +157,6 @@ print(enhanced_prompt.template)
 
 The enhanced prompts are automatically saved in the `enhanced_prompts` directory.
 
-
 ## Example Usage of FewShotPromptGenerator
 
 Here’s an example of how to use the `FewShotPromptGenerator` to generate few-shot examples for a sentiment analysis prompt:
@@ -171,10 +164,6 @@ Here’s an example of how to use the `FewShotPromptGenerator` to generate few-s
 ```python
 from promptsy.auto_few_shot_generator import FewShotPromptGenerator
 from promptsy.prompt import Prompt
-from promptsy.prompt_manager import PromptManager
-
-# Create an instance of PromptManager
-manager = PromptManager()
 
 # Create an instance of Prompt for sentiment analysis
 sentiment_analysis_prompt = Prompt(
@@ -182,9 +171,6 @@ sentiment_analysis_prompt = Prompt(
     description="Generate a sentiment analysis prompt",
     template="You are a sentiment analysis prompt generator. Generate a prompt for sentiment analysis for the following text: {text}"
 )
-
-# Save the original prompt
-sentiment_analysis_prompt.save(manager)
 
 # Create an instance of FewShotPromptGenerator
 few_shot_generator = FewShotPromptGenerator(model_name="gpt-4o-mini")
@@ -206,7 +192,6 @@ print(sentiment_analysis_prompt_with_examples.template)
 final_prompt = sentiment_analysis_prompt_with_examples.format(text="I am so happy today, but I am tired!")
 print(final_prompt)
 ```
-
 
 ## Contributing
 

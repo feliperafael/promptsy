@@ -1,5 +1,7 @@
 import yaml
 
+from promptsy.prompt_manager import PromptManager
+
 class Prompt:
     """
     A class representing a prompt.
@@ -22,6 +24,7 @@ class Prompt:
         self.name = name
         self.description = description
         self.template = template
+        self.prompt_manager = PromptManager()
 
     def format(self, **kwargs):
         """
@@ -73,17 +76,17 @@ class Prompt:
             raise ValueError("Expected a dictionary for data")
         return cls(data['name'], data['description'], data['template'])
 
-    def save(self, manager):
+    def save(self):
         """
         Save the Prompt instance using the provided PromptManager.
 
         Args:
             manager (PromptManager): The PromptManager instance to use for saving the prompt.
         """
-        manager.save(self.to_dict(), self.name)
+        self.prompt_manager.save(self.to_dict(), self.name)
 
     @classmethod
-    def load(cls, manager, name):
+    def load(cls, name):
         """
         Load a Prompt instance using the provided PromptManager and prompt name.
 
@@ -94,9 +97,11 @@ class Prompt:
         Returns:
             Prompt: The loaded Prompt instance.
         """
-        data = manager.load(name)  # Check what this returns
-        print("Data received:", data)
-        return cls.from_dict(data)
+        from promptsy.prompt_manager import PromptManager
+        prompt_manager = PromptManager()
+        data = prompt_manager.load(name)  # Check what this returns
+       
+        return data
     
     def get_description(self):
 

@@ -1,3 +1,4 @@
 from promptsy.prompt import Prompt
 from promptsy.prompt_manager import PromptManager
+from promptsy.prompt_enhancer import PromptEnhancer
 from promptsy.auto_few_shot_generator import FewShotPromptGenerator
