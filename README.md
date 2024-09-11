@@ -164,8 +164,6 @@ print(enhanced_prompt.template)
 The enhanced prompts are automatically saved in the `enhanced_prompts` directory.
 
 
-
-```markdown
 ## Example Usage of FewShotPromptGenerator
 
 Here’s an example of how to use the `FewShotPromptGenerator` to generate few-shot examples for a sentiment analysis prompt:
@@ -207,7 +205,7 @@ print(sentiment_analysis_prompt_with_examples.template)
 # Optionally, you can call the OpenAI API with the generated prompt
 final_prompt = sentiment_analysis_prompt_with_examples.format(text="I am so happy today, but I am tired!")
 print(final_prompt)
-```
+
 
 
 ## Contributing
